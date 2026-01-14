@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shoply/components/grid_painter.dart';
 import 'package:shoply/components/subtle_radial_glow.dart';
 import 'package:shoply/config/constants/text_styles.dart';
+import 'package:shoply/screens/dashboard/dashboard_screen_1.dart';
 import '../../config/constants/app_colors.dart';
+import 'package:lottie/lottie.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,8 +13,19 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
+@override
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() { 
+    super.initState();
+    Future.delayed(Duration(seconds: 3), (){
+      if(!mounted) {return;}
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardScreen1()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +49,6 @@ class _SplashScreenState extends State<SplashScreen> {
                     Card(
                       elevation: 7,
                       color: AppColors.primary,
-                      
                       child: const Padding(
                         padding: EdgeInsets.all(18.0),
                         child: Icon(
@@ -58,14 +71,12 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             ),
           ),
-          const Positioned(
-            bottom: 50,
+         Positioned(
+            bottom: 10,
             left: 0,
             right: 0,
             child: Center(
-              child: CircularProgressIndicator.adaptive(
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
-              ),
+              child: Lottie.asset('assets/lottie/Insider-loading.json', width: 110, height: 110),
             ),
           ),
         ],
