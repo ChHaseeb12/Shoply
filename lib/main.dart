@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoply/screens/dashboard/dashboard_screen_1.dart';
 import 'package:shoply/screens/splash/splash_screen.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: DashboardScreen1());
   }
 }
