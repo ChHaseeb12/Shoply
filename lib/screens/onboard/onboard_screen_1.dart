@@ -3,18 +3,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoply/components/grid_painter.dart';
 import 'package:shoply/components/subtle_radial_glow.dart';
 import 'package:shoply/config/constants/app_colors.dart';
-import 'package:shoply/config/constants/text_styles.dart';
+import 'package:shoply/screens/onboard/onboard_screen_2.dart';
 
-class DashboardScreen1 extends StatefulWidget {
-  const DashboardScreen1({super.key});
+class OnboardScreen1 extends StatefulWidget {
+  const OnboardScreen1({super.key});
 
   @override
-  State<DashboardScreen1> createState() => _DashboardScreen1State();
+  State<OnboardScreen1> createState() => _OnboardScreen1State();
 }
 
-class _DashboardScreen1State extends State<DashboardScreen1> {
+class _OnboardScreen1State extends State<OnboardScreen1> {
 
  String assetName = 'assets/icons/compass_logo.svg';
+ String assetName2 = 'assets/icons/greater-than.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -66,13 +67,38 @@ class _DashboardScreen1State extends State<DashboardScreen1> {
                   SizedBox(height: 15,),
                   Text('Discover', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15,),
-                  Text('Explore thousands of products handpicked\n by our experts. Find exactly what you need.', style: TextStyle(color: AppColors.textSecondary, fontSize: 17, fontWeight: FontWeight.normal))
+                  Text('Explore thousands of products handpicked\n by our experts. Find exactly what you need.', style: TextStyle(color: AppColors.textSecondary, fontSize: 17, fontWeight: FontWeight.normal)),
+                                  ],
+              ),
+            ),
+            Positioned(
+              bottom: 48,
+              left: 24,
+              right: 24,
+                    child: ElevatedButton(
+                    onPressed: () async{await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnboardScreen2()));},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text('Continue', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
+                        SizedBox(width: 10,),
+                        SvgPicture.asset(assetName2,height: 25,width: 25,colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),)
+                      ],
+                    ),
+                    ),
+                  )
                 ],
               ),
             ),
-          ],
-        ),
-      ),
     );
   }
 }
