@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shoply/components/grid_painter.dart';
 import 'package:shoply/components/subtle_radial_glow.dart';
 import 'package:shoply/config/constants/text_styles.dart';
-import 'package:shoply/screens/onboard/onboard_screen_1.dart';
+import 'package:shoply/screens/onboarding/onboarding_screen.dart';
 import '../../config/constants/app_colors.dart';
 import 'package:lottie/lottie.dart';
 
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 3), (){
       if(!mounted) {return;}
-      Navigator.push(context, MaterialPageRoute(builder: (context) => OnboardScreen1()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => OnboardingScreen()));
     });
   }
 
